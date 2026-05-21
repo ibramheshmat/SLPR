@@ -17,8 +17,8 @@ jobs:
       - name: Install SwiftLint
         run: brew install swiftlint
 
-      - name: Set base branch
-        run: echo "BASE_BRANCH=${{ github.base_ref }}" >> $GITHUB_ENV
-
       - name: Run SwiftLint
-        run: ./scripts/swiftlint_pr.sh
+        env:
+          BASE_BRANCH: ${{ github.base_ref }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: ./SLPR/scripts/swiftlint_pr.sh
