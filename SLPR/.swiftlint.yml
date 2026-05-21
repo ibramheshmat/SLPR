@@ -8,6 +8,7 @@ opt_in_rules:
   
 type_name:
   min_length: 2
+  max_length: 10
 
 line_length:
   warning: 50
