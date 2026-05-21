@@ -9,7 +9,7 @@ import UIKit
 
 class feature1: UIViewController {
 
-    let sk = "sfjahfkjahfjk"
+    let sksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksk = "sfjahfkjahfjk"
     override func viewDidLoad() {
         super.viewDidLoad()
         hello()
