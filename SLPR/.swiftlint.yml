@@ -5,6 +5,9 @@ disabled_rules:
 opt_in_rules:
   - empty_count
   - force_unwrapping
+  
+type_name:
+    max_lenght: 2
 
 line_length:
   warning: 50
