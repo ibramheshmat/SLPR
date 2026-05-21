@@ -1,39 +1,16 @@
-# ──────────────────────────────────────────
-# SwiftLint Configuration — Swift 5 UIKit
-# ──────────────────────────────────────────
+disabled_rules:
+  - todo
+  - trailing_whitespace
+
+opt_in_rules:
+  - empty_count
+  - force_unwrapping
+
+line_length:
+  warning: 50
+  error: 100
 
 excluded:
   - Pods
-  - .build
-  - DerivedData
-
-# ── Opt-in rules ──────────────────────────
-opt_in_rules:
-  - empty_count                        # prefer .isEmpty over .count == 0
-  - empty_string                       # prefer .isEmpty over == ""
-  - toggle_bool                        # prefer bool.toggle() over bool = !bool
-  - weak_delegate                      # delegates should be weak to avoid retain cycles
-  - closure_spacing                    # require spaces inside closure braces { x }
-
-# ── Disabled rules ────────────────────────
-disabled_rules:
-  - todo                               # allow TODO: comments during development
-  - trailing_whitespace                # editors handle this automatically
-  - line_length                        # disable until codebase is cleaner
-  - identifier_name                    # too strict for existing code
-  - type_name                          # too strict for existing code
-  - cyclomatic_complexity              # tackle this later
-  - force_cast  
-
-# ── Only tweak what's left ─────────────────
-file_length:
-  warning: 50                         # relaxed limit for existing files
-  error: 100
-
-function_body_length:
-  warning: 60                          # relaxed for existing code
-  error: 100
-
-type_body_length:
-  warning: 350                         # relaxed for existing code
-  error: 500
+  - Carthage
+  - build

@@ -1,0 +1,25 @@
+name: SwiftLint PR Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install SwiftLint
+        run: brew install swiftlint
+
+      - name: Set base branch
+        run: echo "BASE_BRANCH=${{ github.base_ref }}" >> $GITHUB_ENV
+
+      - name: Run SwiftLint
+        run: ./scripts/swiftlint_pr.sh
