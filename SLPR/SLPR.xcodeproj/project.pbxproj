@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8063EFB22FBEFE81001B523B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8063EFB12FBEFE81001B523B /* .swiftlint.yml */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		8063EF992FBEFE2B001B523B /* SLPR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLPR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8063EFB12FBEFE81001B523B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -45,6 +50,7 @@
 		8063EF902FBEFE2B001B523B = {
 			isa = PBXGroup;
 			children = (
+				8063EFB12FBEFE81001B523B /* .swiftlint.yml */,
 				8063EF9B2FBEFE2B001B523B /* SLPR */,
 				8063EF9A2FBEFE2B001B523B /* Products */,
 			);
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8063EFB22FBEFE81001B523B /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
