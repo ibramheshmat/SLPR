@@ -9,6 +9,8 @@ import UIKit
 
 class feature1: UIViewController {
 
+    let sjhfgahjfajfh = "test"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hello()
