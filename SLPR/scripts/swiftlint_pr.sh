@@ -11,6 +11,10 @@ cd "$REPO_ROOT"
 BASE_BRANCH="${BASE_BRANCH:-${GITHUB_BASE_REF:-main}}"
 BASE_REF="${BASE_SHA:-}"
 
+if [ -n "$BASE_REF" ] && ! git cat-file -e "$BASE_REF^{commit}" 2>/dev/null; then
+  BASE_REF=""
+fi
+
 if [ -z "$BASE_REF" ]; then
   git fetch origin "$BASE_BRANCH" --quiet
   BASE_REF="origin/$BASE_BRANCH"
@@ -55,25 +59,30 @@ while IFS= read -r file; do
 
   echo "Linting added lines in: $file"
 
-  lint_output=$(swiftlint lint --quiet --config "$CONFIG_FILE" --path "$file" --reporter json 2>&1) || lint_status=$?
-  lint_status="${lint_status:-0}"
+  set +e
+  lint_output=$(swiftlint lint --quiet --config "$CONFIG_FILE" --path "$file" --reporter json 2>&1)
+  lint_status=$?
+  set -e
 
   if [ "$lint_status" -ne 0 ] && ! printf '%s' "$lint_output" | ruby -rjson -e 'JSON.parse(STDIN.read)' >/dev/null 2>&1; then
     echo "$lint_output"
     failed=1
-    lint_status=0
     continue
   fi
 
   violations=$(
     printf '%s' "$lint_output" |
       ruby -rjson -e '
-        ranges = ARGV.fetch(0).split(",").map { |range|
+        file_path = File.expand_path(ARGV.fetch(0))
+        ranges = ARGV.fetch(1).split(",").map { |range|
           start_line, end_line = range.split(":").map(&:to_i)
           (start_line..end_line)
         }
 
         JSON.parse(STDIN.read).each do |violation|
+          violation_file = violation["file"]
+          next if violation_file && File.expand_path(violation_file) != file_path
+
           line = violation["line"]
           next unless line && ranges.any? { |range| range.include?(line) }
 
@@ -85,19 +94,19 @@ while IFS= read -r file; do
 
           puts "#{file}:#{line}:#{character}: #{severity}: #{rule} - #{reason}"
         end
-      ' "$ranges"
+      ' "$file" "$ranges"
   )
 
   if [ -n "$violations" ]; then
     echo "$violations"
     failed=1
   fi
-
-  unset lint_status
 done <<< "$changed_files"
 
 if [ "$failed" -ne 0 ]; then
   echo "SwiftLint failed on lines added by this PR"
+else
+  echo "SwiftLint passed for lines added by this PR"
 fi
 
 exit "$failed"
