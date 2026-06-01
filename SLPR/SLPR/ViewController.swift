@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     var dsljghsklgfklgklfgjfkdlgfdklgjfklgjdasiyftaiuyftyasfiuysfiuyasfiuaysfisdlghasklghjadglf = "test"
     var test3 = "test"
+    var test5 = "test5"
     override func viewDidLoad() {
         super.viewDidLoad()
         hello()
@@ -107,4 +108,8 @@ class ViewController: UIViewController {
     func hello23() {
         print("hello")
     }
+}
+
+protocol Testtestte {
+    func test()
 }
