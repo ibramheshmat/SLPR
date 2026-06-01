@@ -11,7 +11,7 @@ class feature1: UIViewController {
 
     let test = 10
     let test2 = 20
-    let testtlakjfhadkjfhsjkfhjsdkfhwiufhewiufhweiufhwoiufhweiufhsjkfgwiuhfiwhfoadjfghkausgiurgfhwufghui = 293
+    let test4 = 293
     override func viewDidLoad() {
         super.viewDidLoad()
         hello()
