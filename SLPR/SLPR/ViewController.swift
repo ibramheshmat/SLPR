@@ -113,3 +113,7 @@ class ViewController: UIViewController {
 protocol Testtestte {
     func test()
 }
+
+protocol Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2Feature2 {
+    func test()
+}
