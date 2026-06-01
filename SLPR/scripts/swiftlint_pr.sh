@@ -60,7 +60,7 @@ while IFS= read -r file; do
   echo "Linting added lines in: $file"
 
   set +e
-  lint_output=$(swiftlint lint --quiet --config "$CONFIG_FILE" --path "$file" --reporter json 2>&1)
+  lint_output=$(swiftlint lint --quiet --config "$CONFIG_FILE" --reporter json "$file" 2>&1)
   lint_status=$?
   set -e
 
