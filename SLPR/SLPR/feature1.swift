@@ -9,7 +9,7 @@ import UIKit
 
 class feature1: UIViewController {
 
-    let x = 10
+    let test = 10
     override func viewDidLoad() {
         super.viewDidLoad()
         hello()
