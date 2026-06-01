@@ -9,8 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var lkfa = "test"
-    var x = "test"
     override func viewDidLoad() {
         super.viewDidLoad()
         hello()
