@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     var dsljghsklgfklgklfgjfkdlgfdklgjfklgjdasiyftaiuyftyasfiuysfiuyasfiuaysfisdlghasklghjadglf = "test"
     var test3 = "test"
+    var x = "test5"
     override func viewDidLoad() {
         super.viewDidLoad()
         hello()
