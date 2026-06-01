@@ -10,6 +10,7 @@ import UIKit
 class feature1: UIViewController {
 
     let test = 10
+    let test2 = 20
     override func viewDidLoad() {
         super.viewDidLoad()
         hello()
