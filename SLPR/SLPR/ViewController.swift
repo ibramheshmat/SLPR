@@ -109,3 +109,7 @@ class ViewController: UIViewController {
         print("hello")
     }
 }
+
+protocol testtesttest {
+    func test()
+}
