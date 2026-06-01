@@ -110,6 +110,6 @@ class ViewController: UIViewController {
     }
 }
 
-protocol testtesttest {
+protocol Testtesttest {
     func test()
 }
